@@ -18,10 +18,16 @@ sudo apt-get --assume-yes install pritunl mongodb-server
 systemctl start mongod pritunl
 systemctl enable mongod pritunl
 
+sudo sh -c 'echo "* hard nofile 64000" >> /etc/security/limits.conf'
+sudo sh -c 'echo "* soft nofile 64000" >> /etc/security/limits.conf'
+sudo sh -c 'echo "root hard nofile 64000" >> /etc/security/limits.conf'
+sudo sh -c 'echo "root soft nofile 64000" >> /etc/security/limits.conf'
+
+
 # Install Squid
 apt-get -y install squid
 cp /etc/squid/squid.conf /etc/squid/squid.conf.orig
-wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/emue25/safe/master/squid.conf" 
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/emue25/safe/master/squid.conf" 
 MYIP=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | grep -v '192.168'`;
 sed -i s/xxxxxxxxx/$MYIP/g /etc/squid/squid.conf;
 systemctl restart squid
