@@ -8,13 +8,13 @@ apt-get -y install ufw
 apt-get -y install sudo
 
 # Install Pritunl
-echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.2 main" > /etc/apt/sources.list.d/mongodb-org-3.2.list
-echo "deb http://repo.pritunl.com/stable/apt jessie main" > /etc/apt/sources.list.d/pritunl.list
-apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv EA312927
-apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv CF8E292A
-apt-get -y update
-apt-get -y upgrade
-apt-get -y install pritunl mongodb-org
+echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.0 main" > /etc/apt/sources.list.d/mongodb-org-4.0.list
+echo "deb http://repo.pritunl.com/stable/apt stretch main" > /etc/apt/sources.list.d/pritunl.list
+sudo apt-get install dirmngr
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7568D9BB55FF9E5287D586017AE645C0CF8E292A
+sudo apt-get update
+sudo apt-get --assume-yes install pritunl mongodb-server
 systemctl start mongod pritunl
 systemctl enable mongod pritunl
 
