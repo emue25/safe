@@ -27,10 +27,10 @@ sudo apt-get --assume-yes install pritunl mongodb-server
 systemctl start mongod pritunl
 systemctl enable mongod pritunl
 
-sudo sh -c 'echo "* hard nofile 64000" >> /etc/security/limits.conf'>
-sudo sh -c 'echo "* soft nofile 64000" >> /etc/security/limits.conf'>
-sudo sh -c 'echo "root hard nofile 64000" >> /etc/security/limits.conf'>
-sudo sh -c 'echo "root soft nofile 64000" >> /etc/security/limits.conf'>
+sudo sh -c 'echo "* hard nofile 64000" >> /etc/security/limits.conf'
+sudo sh -c 'echo "* soft nofile 64000" >> /etc/security/limits.conf'
+sudo sh -c 'echo "root hard nofile 64000" >> /etc/security/limits.conf'
+sudo sh -c 'echo "root soft nofile 64000" >> /etc/security/limits.conf'
 
 
 # Install Squid
