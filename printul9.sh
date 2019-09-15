@@ -11,11 +11,12 @@ apt-get install sudo
 #echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.0 main" > /etc/apt/sources.list.d/mongodb-org-4.0.list
 #echo "deb http://repo.pritunl.com/stable/apt stretch main" > /etc/apt/sources.list.d/pritunl.list
 
-echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.0 main" > sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list << EOF
+echo "sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list"<< EOF
+echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.0 main>
 EOF
 
-
-echo "deb http://repo.pritunl.com/stable/apt stretch main" > sudo tee /etc/apt/sources.list.d/pritunl.list << EOF
+echo "deb http://repo.pritunl.com/stable/apt stretch main"<< EOF
+echo "sudo tee /etc/apt/sources.list.d/pritunl.list>
 EOF
 
 sudo apt-get install dirmngr
@@ -26,10 +27,10 @@ sudo apt-get --assume-yes install pritunl mongodb-server
 systemctl start mongod pritunl
 systemctl enable mongod pritunl
 
-sudo sh -c 'echo "* hard nofile 64000" >> /etc/security/limits.conf'
-sudo sh -c 'echo "* soft nofile 64000" >> /etc/security/limits.conf'
-sudo sh -c 'echo "root hard nofile 64000" >> /etc/security/limits.conf'
-sudo sh -c 'echo "root soft nofile 64000" >> /etc/security/limits.conf'
+sudo sh -c 'echo "* hard nofile 64000" >> /etc/security/limits.conf'>
+sudo sh -c 'echo "* soft nofile 64000" >> /etc/security/limits.conf'>
+sudo sh -c 'echo "root hard nofile 64000" >> /etc/security/limits.conf'>
+sudo sh -c 'echo "root soft nofile 64000" >> /etc/security/limits.conf'>
 
 
 # Install Squid
