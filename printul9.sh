@@ -10,12 +10,12 @@ apt-get install sudo
 # Install Pritunl
 #echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.0 main" > /etc/apt/sources.list.d/mongodb-org-4.0.list
 #echo "deb http://repo.pritunl.com/stable/apt stretch main" > /etc/apt/sources.list.d/pritunl.list
-sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list << EOF
-deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.0 main
+
+echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.0 main" > sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list << EOF
 EOF
 
-sudo tee /etc/apt/sources.list.d/pritunl.list << EOF
-deb http://repo.pritunl.com/stable/apt stretch main
+
+echo "deb http://repo.pritunl.com/stable/apt stretch main" > sudo tee /etc/apt/sources.list.d/pritunl.list << EOF
 EOF
 
 sudo apt-get install dirmngr
@@ -95,4 +95,3 @@ echo "Pritunl    :  https://$MYIP"
 echo "Sila login ke pritunl untuk proceed step seterusnya"
 echo "Sila copy code dibawah untuk Pritunl anda"
 pritunl setup-key
-sudo pritunl default-password
